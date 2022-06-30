@@ -1,37 +1,60 @@
 const { response } = require('express');
+const User = require('../models/user');
+const bcryptjs = require('bcryptjs');
 
-const usersGet = (req, res = response) => {
+const usersGet = async(req, res = response) => {
+
+    const query = {status: true}
+
+    const[total, users] = await Promise.all([
+        User.countDocuments(query),
+        User.find(query)
+    ]);
+
     res.json({
-        msg: 'get API - Controlador'
+        cantidad: total,
+        users
     });
 }
 
-const usersPost = (req, res) => {
+const usersPost = async (req, res) => {
 
-    const { nombre, edad } = req.body;
+    const { name, email, password } = req.body;
+    const user = new User({ name, email, password });
+
+    //Encriptar contraseña
+    const salt = bcryptjs.genSaltSync();
+
+    user.password = bcryptjs.hashSync(password, salt);
+
+    await user.save();
 
     res.json({
-        nombre,
-        edad
+        user
     });
 }
 
-const usersPut = (req, res) => {
+const usersPut = async (req, res) => {
 
     const { id } = req.params;
 
-    const { nombre, edad } = req.body;
+    const { name, email } = req.body;
+
+    const user = await User.findByIdAndUpdate(id, { name, email },{new:true});
 
     res.json({
-        id,
-        nombre,
-        edad
+        user
     });
 }
 
-const usersDete = (req, res) => {
+const usersDete = async (req, res) => {
+
+    const { id } = req.params;
+
+    const user = await User.findByIdAndUpdate(id, {status: false}, {new:true})
+
     res.json({
-        msg: 'delete API'
+        user
     });
 }
 
