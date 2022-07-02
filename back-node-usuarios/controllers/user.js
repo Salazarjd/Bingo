@@ -54,7 +54,7 @@ const usersDete = async (req, res) => {
     const user = await User.findByIdAndUpdate(id, {status: false}, {new:true})
 
     res.json({
-        user
+        user,
     });
 }
 
