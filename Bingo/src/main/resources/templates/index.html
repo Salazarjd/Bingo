@@ -3,14 +3,65 @@
     <head>
         <meta charset="UTF-8">
         <title>Bingo</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     </head>
     <body>
-        <h1>Inicio</h1>
-        <p th:text="${gamer}"></p>
-        <p th:text="${lista1}"></p>
-        <p th:text="${lista2}"></p>
-        <p th:text="${lista3}"></p>
-        <p th:text="${lista4}"></p>
-        <p th:text="${lista5}"></p>
+        <div class="container">
+            <h1>Bienvenido al juego</h1>
+            <br/>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">B</th>
+                        <th scope="col">I</th>
+                        <th scope="col">N</th>
+                        <th scope="col">G</th>
+                        <th scope="col">O</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr>
+    <!--                    <th scope="row">1</th>-->
+                        <td><a th:text="${lista1[1]}" th:href="@{/}" th:type="submit" class="btn btn-primary" th:onclick=""></a></td>
+                        <td><a th:text="${lista2[1]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                        <td><a th:text="${lista3[1]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                        <td><a th:text="${lista4[1]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                        <td><a th:text="${lista5[1]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                    </tr>
+                    <tr>
+                        <td><a th:text="${lista1[2]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                        <td><a th:text="${lista2[2]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                        <td><a th:text="${lista3[2]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                        <td><a th:text="${lista4[2]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                        <td><a th:text="${lista5[2]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                    </tr>
+                    <tr>
+                        <td><a th:text="${lista1[3]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                        <td><a th:text="${lista2[3]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                        <td><a th:text="${lista3[3]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                        <td><a th:text="${lista4[3]}" th:href="@{/}" th:type="submint" class="btn btn-primary"></a></td>
+                        <td><a th:text="${lista5[3]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                    </tr>
+                    <tr>
+                        <td><a th:text="${lista1[4]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                        <td><a th:text="${lista2[4]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                        <td><a th:text="${lista3[4]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                        <td><a th:text="${lista4[4]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                        <td><a th:text="${lista5[4]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                    </tr>
+                    <tr>
+                        <td><a th:text="${lista1[5]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                        <td><a th:text="${lista2[5]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                        <td><a th:text="${lista3[5]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                        <td><a th:text="${lista4[5]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                        <td><a th:text="${lista5[5]}" th:href="@{/}" th:type="submit" class="btn btn-primary"></a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br/>
+            <h3>Balota: </h3>
+            <a th:text="${boton}" th:href="@{/}" th:type="submit" class="btn btn-warning"></a>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     </body>
 </html>

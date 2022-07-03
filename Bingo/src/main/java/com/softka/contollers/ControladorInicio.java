@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class ControladorInicio {
 
+    Bingo bingo = new Bingo();
+    Gamer gamer = new Gamer();
+
     @GetMapping("/")
     public String inicio(Model model){
         var mensaje = "Hola mundo desde thymeleaf";
@@ -20,14 +23,14 @@ public class ControladorInicio {
 
         model.addAttribute("mensaje", mensaje);
 
-        Bingo bingo = new Bingo();
 
 
-        Gamer gamer = new Gamer();
+
+
         gamer.setNombre("Juan Diego");
         gamer.setEmail("juan@mail.com");
         gamer.setPassword("123");
-        gamer.setCarton(new Carton());
+//        gamer.setCarton(new Carton());
 
         model.addAttribute("lista1", gamer.getCarton().getFilaB());
         model.addAttribute("lista2", gamer.getCarton().getFilaI());
@@ -35,13 +38,16 @@ public class ControladorInicio {
         model.addAttribute("lista4", gamer.getCarton().getFilaG());
         model.addAttribute("lista5", gamer.getCarton().getFilaO());
 
+        model.addAttribute("boton", bingo.sacarBalota());
+
         bingo.agregarJugador(gamer);
-        bingo.sacarBalotas();
-        System.out.println("\nGanador: " + bingo.getGanador());
-        System.out.println("Blotas ganador: " + bingo.getGanador().getNumerosTapados());
-        System.out.println("\nBalotas bingo: " + bingo.getBalotas());
+//        bingo.sacarBalotas();
+//        System.out.println("\nGanador: " + bingo.getGanador());
+//        System.out.println("Blotas ganador: " + bingo.getGanador().getNumerosTapados());
+//        System.out.println("\nBalotas bingo: " + bingo.getBalotas());
 
         model.addAttribute("gamer", gamer.getNombre());
+        model.addAttribute("clase", gamer.taparNumero());
 
         return "index";
     }
