@@ -56,26 +56,55 @@ public class Bingo {
 
     public String sacarBalota(){
         String resultado = "";
-        do{
-            int numero = this.num.nextInt(73)+1;
-                if(!balotas.contains(String.valueOf(numero))){
-                    this.balotas.add(String.valueOf(numero));
-                    if(numero<16){
-                        return resultado =("B"+numero);
-                    }else if(numero<31){
-                        return resultado= ("I"+numero);
-                    }else if(numero<46){
-                        return resultado =("N"+numero);
-                    }else if(numero<61){
-                        return resultado=("G"+numero);
-                    }else{
-                        return resultado=("O"+numero);
+        int numero = this.num.nextInt(73)+1;
+        if(!balotas.contains(String.valueOf(numero))){
+            this.balotas.add(String.valueOf(numero));
+            int pos;
+            if(numero<16){
+                if(this.jugadores.get(this.jugadores.size()-1).getCarton().getFilaB().contains(String.valueOf(numero))){
+                    pos = this.jugadores.get(this.jugadores.size()-1).getCarton().getFilaB().indexOf(String.valueOf(numero));
+                    if(pos>0){
+                        this.jugadores.get(this.jugadores.size()-1).getCarton().taparNumero("B", pos, numero);
                     }
-                }else{
-                    this.sacarBalota();
                 }
-
-        }while(true);
+                resultado = "B"+numero;
+            }else if(numero<31){
+                if(this.jugadores.get(this.jugadores.size()-1).getCarton().getFilaI().contains(String.valueOf(numero))){
+                    pos = this.jugadores.get(this.jugadores.size()-1).getCarton().getFilaI().indexOf(String.valueOf(numero));
+                    if(pos>0){
+                        this.jugadores.get(this.jugadores.size()-1).getCarton().taparNumero("I", pos, numero);
+                    }
+                }
+                resultado = ("I"+numero);
+            }else if(numero<46){
+                if(this.jugadores.get(this.jugadores.size()-1).getCarton().getFilaN().contains(String.valueOf(numero))){
+                    pos = this.jugadores.get(this.jugadores.size()-1).getCarton().getFilaN().indexOf(String.valueOf(numero));
+                    if(pos>0){
+                        this.jugadores.get(this.jugadores.size()-1).getCarton().taparNumero("N", pos, numero);
+                    }
+                }
+                resultado = ("N"+numero);
+            }else if(numero<61){
+                if(this.jugadores.get(this.jugadores.size()-1).getCarton().getFilaG().contains(String.valueOf(numero))){
+                    pos = this.jugadores.get(this.jugadores.size()-1).getCarton().getFilaG().indexOf(String.valueOf(numero));
+                    if(pos>0){
+                        this.jugadores.get(this.jugadores.size()-1).getCarton().taparNumero("G", pos, numero);
+                    }
+                }
+                resultado = ("G"+numero);
+            }else{
+                if(this.jugadores.get(this.jugadores.size()-1).getCarton().getFilaO().contains(String.valueOf(numero))){
+                    pos = this.jugadores.get(this.jugadores.size()-1).getCarton().getFilaO().indexOf(String.valueOf(numero));
+                    if(pos>0){
+                        this.jugadores.get(this.jugadores.size()-1).getCarton().taparNumero("O", pos, numero);
+                    }
+                }
+                resultado = ("O"+numero);
+            }
+        }else{
+            this.sacarBalota();
+        }
+        return resultado;
     }
 
 }

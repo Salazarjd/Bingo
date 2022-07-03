@@ -29,8 +29,9 @@ public class Carton {
 
     public void llenarNumeros(List lista, int min, int max){
         Random num = new Random();
+        String numero;
         while(lista.size()<6){
-            int numero = num.nextInt(max-min+1)+min;
+            numero = String.valueOf(num.nextInt(max-min+1)+min);
             if(!lista.contains(numero)){
                 lista.add(numero);
             }
@@ -45,8 +46,21 @@ public class Carton {
         this.llenarNumeros(this.filaO,61,75);
     }
 
-    public void taparNumero(String num){
-        this.numerosTapados.add(num);
+    public void taparNumero(String fila, int pos, int num){
+        this.numerosTapados.add(String.valueOf(num));
+        if(fila.equalsIgnoreCase("B")){
+            this.filaB.set(pos, "x");
+        }else if(fila.equalsIgnoreCase("I")){
+            this.filaI.set(pos,"x");
+        }else if(fila.equalsIgnoreCase("N")){
+            this.filaN.set(pos,"x");
+        }else if(fila.equalsIgnoreCase("G")){
+            this.filaG.set(pos,"x");
+        }else if(fila.equalsIgnoreCase("O")){
+            this.filaO.set(pos,"x");
+        }
+
+
     }
 
 }
