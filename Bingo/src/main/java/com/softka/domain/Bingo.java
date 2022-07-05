@@ -7,22 +7,46 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Representa un juego de bingo, con una lista de participantes
+ * @Author Juan Diego Salazar
+ */
 @Data
 public class Bingo {
 
+    /**
+     * Representa la lista de balotas q han salido
+     */
     private List<String> balotas = new ArrayList<>();
+
+    /**
+     * Representa una lista de jugadores del bingo
+     */
     private List<Gamer> jugadores = new ArrayList<>();
-    private Gamer ganador;
-    private Scanner sc = new Scanner(System.in);
+
+    /**
+     * Representa una bandera la cual será usada para confirmar el ganador
+     */
     boolean finalizado = false;
 
+    /**
+     * Representa la clase Random, la cual facilita la escogencia de números aleatorios
+     */
     private Random num = new Random();
 
+    /**
+     * Método para agregar jugadores al bingo
+     * @param gamer jugador para agregar como participante
+     */
     public void agregarJugador(Gamer gamer){
         this.jugadores.add(gamer);
     }
 
 
+    /**
+     * Método para generar de manera aleatoria una nueva balota de bingo
+     * @return balota del bingo
+     */
     public String sacarBalota(){
         String resultado = "";
         int numero = this.num.nextInt(73)+1;
@@ -76,6 +100,10 @@ public class Bingo {
         return resultado;
     }
 
+    /**
+     * Método para confirmar si el jugador ha ganado el juego
+     * @return
+     */
     public String juegoFinalizado(){
         String juego = this.jugadores.get(0).getCarton().cartonLleno();
         String resultado = "";
