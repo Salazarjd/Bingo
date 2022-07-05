@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-
+/**
+ * Representa la conexión a la base de datos
+ */
 mongoose.connect(process.env.MONGODB_URI, {
     useUnifiedTopology: true,
     useNewUrlParser: true

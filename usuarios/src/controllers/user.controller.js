@@ -1,12 +1,19 @@
 const User = require('../models/user');
 
-
+/**
+ * Representa el controlador para renderizar las páginas de registro de usuario
+ */
 const userCtrl = {};
 
 userCtrl.renderSingUpForm = (req, res) => {
     res.render('user/signup');
 };
 
+/**
+ * Representa el controlador de registro de usuarios
+ * @param {request} req representa las solicitudes realizadas a la ruta
+ * @param {response} res representa la información de respuesta a la solicitud
+ */
 userCtrl.signup = async(req, res) => {
 
     const errors = [];
@@ -39,10 +46,20 @@ userCtrl.signup = async(req, res) => {
     }
 };
 
+/**
+ * Representa el controlador para renderizar el formulario de login
+ * @param {request} req representa las solicitudes realizadas a la página
+ * @param {response} res representa la respuesta a la información solicitada
+ */
 userCtrl.renderSignInForm = (req, res) => {
     res.render('user/signin');
 };
 
+/**
+ * Representa el controlador para el login de usuario
+ * @param {request} req representa las solicitudes realizadas a la página
+ * @param {response} res representa la respuesta a la información solicitada
+ */
 userCtrl.signin = async (req, res) => {
     const { email, password } = req.body;
 
@@ -57,10 +74,6 @@ userCtrl.signin = async (req, res) => {
         }
     }
 }
-
-userCtrl.logout = (req, res) => {
-    res.send('logout');
-};
 
 
 module.exports = userCtrl;

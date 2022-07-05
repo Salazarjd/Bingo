@@ -1,6 +1,10 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcryptjs');
 
+/**
+ * Representa el modelo con el que serán guardados los datos en la base
+ * @Author Juan Diego Salazar
+ */
 const UserSchema = new Schema({
     name: {
         type: String,
