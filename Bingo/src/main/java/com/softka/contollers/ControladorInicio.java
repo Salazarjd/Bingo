@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @Slf4j
@@ -29,10 +30,19 @@ public class ControladorInicio {
         model.addAttribute("lista5", gamer.getCarton().getColumnaO());
 
         model.addAttribute("boton", bingo.sacarBalota());
+        model.addAttribute("ganador", bingo.juegoFinalizado());
 
-        model.addAttribute("bingo",gamer.getCarton().cartonLleno());
+
 
 
         return "index";
+    }
+
+    @PostMapping("/")
+    public String ganarBingo(){
+
+        bingo.setFinalizado(true);
+
+        return "redirect:/";
     }
 }

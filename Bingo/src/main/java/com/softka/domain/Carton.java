@@ -65,29 +65,6 @@ public class Carton {
 
     public String cartonLleno(){
         String gano = "";
-//        int contadorB = 0;
-//        int contadorI = 0;
-//        int contadorN = 0;
-//        int contadorG = 0;
-//        int contadorO = 0;
-//
-//        for(int i = 1; i < 6; i++){
-//            if(!this.columnaB.get(i).equalsIgnoreCase("x")){
-//                contadorB++;
-//            }
-//            if(!this.columnaI.get(i).equalsIgnoreCase("x")){
-//                contadorI++;
-//            }
-//            if(!this.columnaN.get(i).equalsIgnoreCase("x")){
-//                contadorN++;
-//            }
-//            if(!this.columnaG.get(i).equalsIgnoreCase("x")){
-//                contadorG++;
-//            }
-//            if(!this.columnaO.get(i).equalsIgnoreCase("x")){
-//                contadorO++;
-//            }
-//        }
 
         boolean cB = this.columnaB.get(1).equals("x") && this.columnaB.get(2).equals("x") && this.columnaB.get(3).equals("x")
                 && this.columnaB.get(4).equals("x") && this.columnaB.get(5).equals("x");

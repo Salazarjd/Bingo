@@ -14,6 +14,7 @@ public class Bingo {
     private List<Gamer> jugadores = new ArrayList<>();
     private Gamer ganador;
     private Scanner sc = new Scanner(System.in);
+    boolean finalizado = false;
 
     private Random num = new Random();
 
@@ -72,6 +73,21 @@ public class Bingo {
         if(!balotas.contains(String.valueOf(numero))){
             this.balotas.add(String.valueOf(numero));
         }
+        return resultado;
+    }
+
+    public String juegoFinalizado(){
+        String juego = this.jugadores.get(0).getCarton().cartonLleno();
+        String resultado = "";
+        if(this.finalizado){
+            if(juego.equalsIgnoreCase("gano")){
+                resultado = "Ganaste";
+            }else{
+                resultado = "No hay ganador";
+                this.finalizado = false;
+            }
+        }
+
         return resultado;
     }
 

@@ -62,7 +62,14 @@
             <h3>Balota: </h3>
             <a th:text="${boton}" th:href="@{/}" th:type="submit" class="btn btn-warning"></a>
             <br/>
-            <a th:text="${bingo}" th:href="@{/}" th:type="submit" class="btn btn-warning"></a>
+            <br/>
+            <h3 th:text="${ganador}" th:href="@{/}" th:type="submit" class="btn btn-warning"></h3>
+            <br/>
+            <br/>
+            <form th:action="@{/}" method="post">
+                <input th:value="Bingo" name="Bingo" th:type="submit" class="btn btn-warning"/>
+            </form>
+
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     </body>
