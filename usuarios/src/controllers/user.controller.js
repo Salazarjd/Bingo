@@ -1,6 +1,5 @@
 const User = require('../models/user');
-const passport = require('passport');
-const { use } = require('passport');
+
 
 const userCtrl = {};
 
@@ -43,12 +42,6 @@ userCtrl.signup = async(req, res) => {
 userCtrl.renderSignInForm = (req, res) => {
     res.render('user/signin');
 };
-
-// userCtrl.signin = passport.authenticate('local', {
-//     failureRedirect: '/user/signin',
-//     successRedirect: 'user',
-//     failureFlash: true
-// })
 
 userCtrl.signin = async (req, res) => {
     const { email, password } = req.body;

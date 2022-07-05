@@ -4,11 +4,10 @@ const path = require('path');
 const morgan = require('morgan');
 const flash = require('connect-flash');
 const session = require('express-session');
-const passport = require('passport');
+
 
 //Inicialization
 const app = express();
-require('./config/passport');
 
 //Settings
 app.set('port', process.env.Port || 4000);
@@ -30,8 +29,6 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(flash());
 
 
